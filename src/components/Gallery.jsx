@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import "../assets/css/galeria.css";
 import Heart from "./Heart";
 import Context from "../Context";
@@ -8,12 +8,8 @@ import Context from "../Context";
 const Gallery = () => {
   const { gallery, setGallery } = useContext(Context)
 
-  useEffect(() => {
-    console.log('gallery', gallery)
-  }, [])
 
   const setFavorite = (id) => {
-    console.log(id);
     const galleryIndex = gallery.findIndex((photo) => photo.id === id);
     gallery[galleryIndex].favorite = !gallery[galleryIndex].favorite;
     setGallery([...gallery]);
